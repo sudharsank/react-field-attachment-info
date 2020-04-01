@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
-    "name": "react-field-attachment-count-client-side-solution",
+    "name": "react-field-attachment-info",
     "id": "b0b1c493-1fcb-41fd-b113-315af53bbe0c",
     "version": "1.0.0.0",
     "includeClientSideAssets": true,
@@ -21,6 +21,6 @@
     ]
   },
   "paths": {
-    "zippedPackage": "solution/react-field-attachment-count.sppkg"
+    "zippedPackage": "solution/react-field-attachment-info.sppkg"
   }
 }
