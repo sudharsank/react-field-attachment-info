@@ -1,5 +1,6 @@
 declare interface IAttachmentCountFieldCustomizerStrings {
   Title: string;
+  NoAttachmentMsg: string;
 }
 
 declare module 'AttachmentCountFieldCustomizerStrings' {

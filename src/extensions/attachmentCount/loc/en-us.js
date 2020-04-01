@@ -1,5 +1,6 @@
 define([], function() {
   return {
-    "Title": "AttachmentCountFieldCustomizer"
+    "Title": "AttachmentCountFieldCustomizer",
+    "NoAttachmentMsg": "No Attachment(s)"
   }
 });

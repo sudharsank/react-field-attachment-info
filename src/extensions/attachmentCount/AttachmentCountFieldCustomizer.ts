@@ -19,7 +19,9 @@ import { sp } from "@pnp/sp/presets/all";
  */
 export interface IAttachmentCountFieldCustomizerProperties {
   // This is an example; replace with your own property
-  sampleText?: string;
+  showTotal: boolean;
+  showAttachmentList: boolean;
+  showNoAttachmentMsg: boolean;
 }
 
 const LOG_SOURCE: string = 'AttachmentCountFieldCustomizer';
@@ -51,7 +53,14 @@ export default class AttachmentCountFieldCustomizer
     //const text: string = `${this.properties.sampleText}: ${event.fieldValue}`;
 
     const attachmentCount: React.ReactElement<{}> =
-      React.createElement(AttachmentCount, { listid, itemid } as IAttachmentCountProps);
+      React.createElement(AttachmentCount,
+        {
+          listid, 
+          itemid,
+          showTotal: this.properties.showTotal, 
+          showAttachmentList: this.properties.showAttachmentList,
+          showNoAttachmentMsg: this.properties.showNoAttachmentMsg
+        } as IAttachmentCountProps);
 
     ReactDOM.render(attachmentCount, event.domElement);
   }

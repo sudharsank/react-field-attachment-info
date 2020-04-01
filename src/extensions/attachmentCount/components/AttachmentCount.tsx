@@ -1,6 +1,7 @@
 import { Log } from '@microsoft/sp-core-library';
 import { override } from '@microsoft/decorators';
 import * as React from 'react';
+import * as strings from 'AttachmentCountFieldCustomizerStrings';
 import { Spinner, SpinnerSize } from 'office-ui-fabric-react/lib/Spinner';
 import { IStackProps, Stack } from 'office-ui-fabric-react/lib/Stack';
 import { Icon } from 'office-ui-fabric-react/lib/Icon';
@@ -27,11 +28,17 @@ const spinnerClass = mergeStyles({
   display: 'inline-flex',
   position: 'absolute',
   left: '40px'
-})
+});
+const noAttachClass = mergeStyles({
+  color: 'darkorange'
+});
 
 export interface IAttachmentCountProps {
   listid: string;
   itemid: number;
+  showTotal: boolean;
+  showAttachmentList: boolean;
+  showNoAttachmentMsg: boolean;
 }
 
 export interface IAttachmentCountState {
@@ -79,8 +86,10 @@ export default class AttachmentCount extends React.Component<IAttachmentCountPro
               <Spinner size={SpinnerSize.xSmall} className={spinnerClass} />
             ) : (
                 <>
-                  <div className={styles.totalDiv}>Total: {this.state.attachments.length}</div>
-                  {this.state.attachments.map(attach => {
+                  {this.props.showTotal &&
+                    <div className={styles.totalDiv}>Total: {this.state.attachments.length}</div>
+                  }
+                  {this.props.showAttachmentList && this.state.attachments.map(attach => {
                     return (
                       <Stack {...rowProps}>
                         <Icon iconName="Attach" />
@@ -93,7 +102,14 @@ export default class AttachmentCount extends React.Component<IAttachmentCountPro
             }
           </>
         ) : (
-            <>{"No Attachments"}</>
+            <>
+              {this.props.showNoAttachmentMsg &&
+                <Stack {...rowProps} tokens={tokens.sectionStack}>
+                  <Icon iconName="ReportHacked" className={noAttachClass} />
+                  <div>{strings.NoAttachmentMsg}</div>
+                </Stack>
+              }
+            </>
           )}
       </div>
     );
