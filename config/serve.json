@@ -4,7 +4,7 @@
   "https": true,
   "serveConfigurations": {
     "default": {
-      "pageUrl": "https://o365practice.sharepoint.com/sites/ModernDev/Lists/Demo/AllItems.aspx",
+      "pageUrl": "https://contoso.sharepoint.com/sites/ModernDev/Lists/Demo/AllItems.aspx",
       "fieldCustomizers": {
         "Attachments": {
           "id": "dfb92428-cdef-48ae-9834-bafee3f7ffd4",

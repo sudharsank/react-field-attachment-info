@@ -42,7 +42,6 @@ export default class AttachmentCountFieldCustomizer
 
   @override
   public onRenderCell(event: IFieldCustomizerCellEventParameters): void {
-    //console.log(this.context, event);
     const fieldValue: string = event.fieldValue;
     let itemid: number = 0, listid: string = "";
     if (fieldValue == "1") {
