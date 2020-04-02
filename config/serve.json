@@ -11,7 +11,7 @@
           "properties": {
             "showTotal": true,
             "showAttachmentList": true,
-            "showNoAttachmentMsg": false
+            "showNoAttachmentMsg": true
           }
         }
       }
